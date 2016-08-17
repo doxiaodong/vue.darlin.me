@@ -2,6 +2,6 @@
 
 set -ev
 
-npm run tslint
+npm run eslint
 
 npm run build

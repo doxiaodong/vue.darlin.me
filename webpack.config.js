@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
-// const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const Autoprefixer = require('autoprefixer')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const autoprefixer = require('autoprefixer')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 function webpackConfig() {
@@ -20,17 +20,41 @@ function webpackConfig() {
       chunkFilename: '[id].[hash].chunk.js'
     },
 
+    vue: {
+      // loaders: {
+      //   css: ExtractTextPlugin.extract('css'),
+      //   less: ExtractTextPlugin.extract('css!less')
+      // },
+      autoprefixer: {
+        browsers: ['last 1 version', '> 10%']
+      }
+    },
+
     module: {
       loaders: [
         { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
         { test: /\.css$/, loader: 'style!css!postcss' },
         { test: /\.less$/, loader: 'style!css!postcss!less' },
+        { test: /\.font\.json$/, loader: 'style!css!fontgen' },
+
+        // { test: /\.css$/, loader: ExtractTextPlugin.extract({
+        //   fallbackLoader: 'style',
+        //   loader: 'css!postcss'
+        // }) },
+        // { test: /\.less$/, loader: ExtractTextPlugin.extract({
+        //   fallbackLoader: 'style',
+        //   loader: 'css!postcss!less'
+        // }) },
+        // { test: /\.font\.json$/, loader: ExtractTextPlugin.extract({
+        //   fallbackLoader: 'style',
+        //   loader: 'css!fontgen'
+        // }) },
         { test: /\.vue$/, loader: 'vue' }
       ]
     },
 
     postcss: [
-      Autoprefixer({
+      autoprefixer({
         browsers: ['last 1 version', '> 10%']
       })
     ],
@@ -57,7 +81,7 @@ function webpackConfig() {
         chunksSortMode: 'dependency'
       }),
 
-      // new ExtractTextPlugin('main.[hash].css'),
+      new ExtractTextPlugin('main.[hash].css'),
 
       new webpack.optimize.CommonsChunkPlugin({
         name: ['lib', 'main'].reverse()

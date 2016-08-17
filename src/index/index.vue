@@ -14,7 +14,7 @@
   }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
   @import '../variables.less';
   #index {
     color: @border-color;
