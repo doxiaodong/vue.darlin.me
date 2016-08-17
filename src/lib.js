@@ -1,2 +1,5 @@
-require('vue')
-require('vue-router')
+import 'vue'
+import 'vue-router'
+
+import 'lodash/core.js'
+import 'moment'

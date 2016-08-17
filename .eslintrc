@@ -1,0 +1,16 @@
+{
+    "extends": "standard",
+    "plugins": [
+        "standard",
+        "promise"
+    ],
+    "globals": {
+      "moment": true,
+      "_": true
+    },
+    "rules": {
+        "no-var": 2,
+        "space-before-function-paren": [2, "never"],
+        "no-multiple-empty-lines": [2, { "max": 1, "maxBOF": 0, "maxEOF": 1 }]
+    }
+}

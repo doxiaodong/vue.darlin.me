@@ -37,12 +37,14 @@ function webpackConfig() {
 
     plugins: [
       new webpack.ProvidePlugin({
-        marked: 'marked',
-        hljs: 'highlight.js',
-        md5: 'crypto-js/md5',
-        emojione: 'emojione',
-        base64: 'js-base64',
-        sha512: 'crypto-js/sha512'
+        // marked: 'marked',
+        // hljs: 'highlight.js',
+        // md5: 'crypto-js/md5',
+        // emojione: 'emojione',
+        // base64: 'js-base64',
+        // sha512: 'crypto-js/sha512',
+
+        // moment: 'moment'
       }),
 
       new HtmlWebpackPlugin({
@@ -63,7 +65,7 @@ function webpackConfig() {
 
       new webpack.DefinePlugin({
         Name: 'vue.darlin.me'
-      }),
+      })
 
     ],
 
@@ -83,15 +85,15 @@ function webpackConfig() {
         ENV: 'prod'
       }),
       new webpack.optimize.UglifyJsPlugin({
-        beautify: false, //prod
+        beautify: false, // prod
 
         mangle: {
           screw_ie8: true
-        }, //prod
+        }, // prod
         compress: {
           screw_ie8: true
-        }, //prod
-        comments: false //prod
+        }, // prod
+        comments: false // prod
       })
     ])
   }
