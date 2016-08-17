@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    data () {
+    data() {
       return {
         msg: 'index'
       }
@@ -15,8 +15,9 @@
 </script>
 
 <style lang="less">
+  @import '../variables.less';
   #index {
-    /*color: @border-color;*/
-    color: #41B883;
+    color: @border-color;
+    /*color: red;*/
   }
 </style>

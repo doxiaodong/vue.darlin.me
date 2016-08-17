@@ -1,5 +1,7 @@
 <div id="app">
+  <router-link :to="{ name: 'index' }">/</router-link>
+  <router-link :to="{ name: 'article' }">/article</router-link>
   <input v-model="msg">
-  <h1>Hello {{ msg }}</h1>
-  <index-component></index-component>
+  <h1>Hello {{ msg }}</h1>{{ ttt }}
+  <router-view></router-view>
 </div>

@@ -9,13 +9,15 @@ function webpackConfig() {
     devtool: '#eval-source-map',
 
     entry: {
-      main: './src'
+      lib: './src/lib.js',
+      main: './src/index.js'
     },
 
     output: {
       path: path.resolve(__dirname, './dist'),
       // publicPath: '//static.darlin.me/',
-      filename: 'build.js'
+      filename: '[name].[hash].js',
+      chunkFilename: '[id].[hash].chunk.js'
     },
 
     module: {
@@ -54,6 +56,10 @@ function webpackConfig() {
       }),
 
       // new ExtractTextPlugin('main.[hash].css'),
+
+      new webpack.optimize.CommonsChunkPlugin({
+        name: ['lib', 'main'].reverse()
+      }),
 
       new webpack.DefinePlugin({
         Name: 'vue.darlin.me'
