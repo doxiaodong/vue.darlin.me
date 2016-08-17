@@ -61,10 +61,6 @@ function webpackConfig() {
 
       new webpack.optimize.CommonsChunkPlugin({
         name: ['lib', 'main'].reverse()
-      }),
-
-      new webpack.DefinePlugin({
-        Name: 'vue.darlin.me'
       })
 
     ],
