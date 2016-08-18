@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './app/app.vue'
 import VueRouter from 'vue-router'
+import { Dhttp } from './base/http/http.service'
 
 import IndexComponent from './index/index.vue'
 Vue.use(VueRouter)
@@ -20,3 +21,4 @@ const router = new VueRouter({
 })
 
 new Vue(Vue.util.extend({ router }, App)).$mount('#darlin')
+Dhttp.get('https://darlin.me/index.html')

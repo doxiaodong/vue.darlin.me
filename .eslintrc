@@ -6,7 +6,8 @@
   ],
   "globals": {
     "moment": true,
-    "_": true
+    "_": true,
+    "fetch": true
   },
   "rules": {
     "no-var": 2,

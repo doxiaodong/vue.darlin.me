@@ -68,6 +68,7 @@ function webpackConfig() {
         // base64: 'js-base64',
         // sha512: 'crypto-js/sha512',
 
+        // _: 'lodash/core.js',
         // moment: 'moment'
       }),
 
