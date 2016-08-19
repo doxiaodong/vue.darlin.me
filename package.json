@@ -17,6 +17,7 @@
     "moment": "^2.14.1",
     "vue": "^2.0.0-beta.5",
     "vue-router": "^2.0.0-rc.3",
+    "vux": "https://github.com/airyland/vux.git#vue@2.0",
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {

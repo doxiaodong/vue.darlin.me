@@ -1,9 +1,13 @@
-// import IndexComponent from '../index/index.vue'
+import {
+  Tabbar,
+  TabbarItem
+} from 'vux-components/tabbar'
 
 export default {
-  // components: {
-  //   'index-component': IndexComponent
-  // },
+  components: {
+    'tabbar': Tabbar,
+    'tabbar-item': TabbarItem
+  },
   data() {
     return {
       msg: 'vue.darlin.me'

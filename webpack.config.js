@@ -30,6 +30,21 @@ function webpackConfig() {
       }
     },
 
+    resolve: {
+      // See: http://webpack.github.io/docs/configuration.html#resolve-extensions
+      extensions: ['', '.js', '.vue'],
+
+      root: path.resolve(__dirname, 'src'),
+
+      alias: {
+        'vux-components': 'vux/src/components'
+      },
+
+      // remove other default values
+      modulesDirectories: ['node_modules']
+
+    },
+
     module: {
       loaders: [
         { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },

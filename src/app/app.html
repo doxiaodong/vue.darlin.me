@@ -5,4 +5,23 @@
   <h1>Hello {{ msg }}</h1>{{ ttt }}
   <i class="xd xd-checkmark"></i>
   <router-view></router-view>
+
+  <tabbar>
+    <tabbar-item>
+      <img slot="icon" src="https://o84lhz5xo.qnssl.com/master/src/assets/demo/icon_nav_button.png">
+      <span slot="label">首页</span>
+    </tabbar-item>
+    <tabbar-item show-dot>
+      <img slot="icon" src="https://o84lhz5xo.qnssl.com/master/src/assets/demo/icon_nav_msg.png">
+      <span slot="label">文章</span>
+    </tabbar-item>
+    <tabbar-item selected>
+      <img slot="icon" src="https://o84lhz5xo.qnssl.com/master/src/assets/demo/icon_nav_article.png">
+      <span slot="label">帐户</span>
+    </tabbar-item>
+    <tabbar-item>
+      <img slot="icon" src="https://o84lhz5xo.qnssl.com/master/src/assets/demo/icon_nav_cell.png">
+      <span slot="label">扯淡</span>
+    </tabbar-item>
+  </tabbar>
 </div>
