@@ -127,6 +127,7 @@ function webpackConfig() {
           screw_ie8: true
         }, // prod
         compress: {
+          warnings: false,
           screw_ie8: true
         }, // prod
         comments: false // prod
