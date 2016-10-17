@@ -1,7 +1,7 @@
 <template>
-  <div id="index">
-    <div>hahah</div>
-  </div>
+	<div id="index">
+		<div>hahah</div>
+	</div>
 </template>
 
 <script>
@@ -14,10 +14,11 @@
   }
 </script>
 
-<style lang="less" scoped>
-  @import '../variables.less';
-  #index {
-    color: @border-color;
-    /*color: red;*/
-  }
-</style>
+<!--<style lang="less" scoped>
+	@import '../variables.less';
+	#index {
+		color: @border-color;
+		/*color: red;*/
+	}
+
+</style>-->

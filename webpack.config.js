@@ -15,33 +15,18 @@ function webpackConfig() {
 
     output: {
       path: path.resolve(__dirname, './dist'),
-      // publicPath: '//static.darlin.me/',
+      publicPath: '/',
       filename: '[name].[hash].js',
       chunkFilename: '[id].[hash].chunk.js'
     },
 
-    vue: {
-      // loaders: {
-      //   css: ExtractTextPlugin.extract('css'),
-      //   less: ExtractTextPlugin.extract('css!less')
-      // },
-      autoprefixer: {
-        browsers: ['last 1 version', '> 10%']
-      }
-    },
-
     resolve: {
       // See: http://webpack.github.io/docs/configuration.html#resolve-extensions
-      extensions: ['', '.js', '.vue'],
-
-      root: path.resolve(__dirname, 'src'),
+      extensions: ['.js', '.vue'],
 
       alias: {
         'vux-components': 'vux/src/components'
-      },
-
-      // remove other default values
-      modulesDirectories: ['node_modules']
+      }
 
     },
 
@@ -50,31 +35,37 @@ function webpackConfig() {
         { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
         { test: /\.css$/, loader: 'style!css!postcss' },
         { test: /\.less$/, loader: 'style!css!postcss!less' },
-        { test: /\.font\.json$/, loader: 'style!css!fontgen' },
-
-        // { test: /\.css$/, loader: ExtractTextPlugin.extract({
-        //   fallbackLoader: 'style',
-        //   loader: 'css!postcss'
-        // }) },
-        // { test: /\.less$/, loader: ExtractTextPlugin.extract({
-        //   fallbackLoader: 'style',
-        //   loader: 'css!postcss!less'
-        // }) },
-        // { test: /\.font\.json$/, loader: ExtractTextPlugin.extract({
-        //   fallbackLoader: 'style',
-        //   loader: 'css!fontgen'
-        // }) },
-        { test: /\.vue$/, loader: 'vue' }
+        { test: /\.vue$/, loader: 'vue' },
+        {
+          test: /\.svg$/,
+          loader: 'svg-sprite?' + JSON.stringify({
+            name: '[name]-[hash]'
+          })
+        }
       ]
     },
 
-    postcss: [
-      autoprefixer({
-        browsers: ['last 1 version', '> 10%']
-      })
-    ],
-
     plugins: [
+      new webpack.LoaderOptionsPlugin({
+        options: {
+          postcss: [
+            autoprefixer({
+              browsers: ['last 1 version', '> 10%']
+            })
+          ],
+
+          vue: {
+            // loaders: {
+            //   css: ExtractTextPlugin.extract('css'),
+            //   less: ExtractTextPlugin.extract('css!less')
+            // },
+            autoprefixer: {
+              browsers: ['last 1 version', '> 10%']
+            }
+          }
+        }
+      }),
+
       new webpack.ProvidePlugin({
         // marked: 'marked',
         // hljs: 'highlight.js',
@@ -101,7 +92,10 @@ function webpackConfig() {
 
       new webpack.optimize.CommonsChunkPlugin({
         name: ['lib', 'main'].reverse()
-      })
+      }),
+
+      // moment 语言包只加载 zh-cn
+      new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/)
 
     ],
 

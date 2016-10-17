@@ -11,5 +11,3 @@ import 'whatwg-fetch'
 // import 'emojione'
 // import 'js-base64'
 // import 'crypto-js/sha512'
-
-import '../icon.font.json'

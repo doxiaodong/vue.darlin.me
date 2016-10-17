@@ -2,4 +2,4 @@
 
 <script src="./app.js"></script>
 
-<style lang="less" src="./app.less" scoped></style>
+<!--<style lang="less" src="./app.less" scoped></style>-->

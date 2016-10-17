@@ -1,13 +1,13 @@
-import {
-  Tabbar,
-  TabbarItem
-} from 'vux-components/tabbar'
+// import {
+//   Tabbar,
+//   TabbarItem
+// } from 'vux-components/tabbar'
 
 export default {
-  components: {
-    'tabbar': Tabbar,
-    'tabbar-item': TabbarItem
-  },
+  // components: {
+  //   'tabbar': Tabbar,
+  //   'tabbar-item': TabbarItem
+  // },
   data() {
     return {
       msg: 'vue.darlin.me'
